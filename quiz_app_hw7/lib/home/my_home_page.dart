@@ -12,7 +12,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   UseQuiz useQuiz = UseQuiz();
-  List<Icon> AddIcon = [];
+  List<Icon> addIcon = [];
 
   void check(bool use ) {
     setState(() {
@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog( // <-- SEE HERE
-        title: const Text('Cancel booking'),
+        title: const Text('Суроолор бутту'),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
@@ -50,9 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
   useQuiz.indexZero();
  } else {
   if(useQuiz.joopAllu() == use) {
-    AddIcon.add(const Icon(Icons.check));
+    addIcon.add(const Icon(Icons.check));
   }else {
-    AddIcon.add(const Icon(Icons.clear));
+    addIcon.add(const Icon(Icons.clear));
   }
   useQuiz.nextQuestion();
  }
@@ -115,12 +115,13 @@ class _MyHomePageState extends State<MyHomePage> {
               style: AppTextStyles.falseButtonTextStyle,),
             ),
             ),
+            const SizedBox(height: 30,),
 
             // ListView.builder(
-            //   itemCount: AddIcon.length,
+            //   itemCount: addIcon.length,
             //   scrollDirection: Axis.horizontal,
             //   itemBuilder: (context, index) {
-            //     return AddIcon[];
+            //     return addIcon[index];
               
             // },)
           ],
