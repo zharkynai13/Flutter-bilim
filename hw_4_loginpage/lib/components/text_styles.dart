@@ -19,6 +19,10 @@ class ForgotTextStyle {
     color: Color.fromARGB(255, 84, 127, 202),
     decoration: TextDecoration.underline
   );
+  static const signInStyle = TextStyle(fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: Color.fromARGB(255, 11, 21, 29),
+    decoration: TextDecoration.underline,);
 }
 class BtnStyle {
   static const btnStyle = TextStyle(fontSize: 20,);

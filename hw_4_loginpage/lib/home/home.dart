@@ -57,7 +57,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(height: 25,),
-            const Text("Forgot password", style: ForgotTextStyle.forgorTextStyle ,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text("Forgot password", style: ForgotTextStyle.forgorTextStyle ,),
+                SizedBox(width: 5,),
+                Text("/", style: ForgotTextStyle.forgorTextStyle,),
+                SizedBox(width: 5,),
+                Text("Sign In", style: ForgotTextStyle.signInStyle,)
+              ],
+            ),
            const SizedBox(height: 30,),
             Container(
               width: 160, 
