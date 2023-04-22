@@ -1,14 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:hw_4_loginpage/components/text_styles.dart';
+import 'package:hw_4_loginpage/home/user_page.dart';
+import 'package:hw_4_loginpage/models/user_model.dart';
+
+
+List users = <UserS> [zharkynai, myrzaiym,aibek, baitur, meder];
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String? _email;
+  String? _password;
+
+  void controlLogIn(String email, String password) {
+    for(final user in users) {
+      if(email == user.email && password == user.password) {
+        Navigator.push(context,MaterialPageRoute(
+          builder: (context) => const UserPage()));
+          break;
+      } 
+      else {
+        ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: 
+        Text("Invailed login or password")
+        ));
+      }
+
+    }
+
+  }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -29,10 +56,13 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             const SizedBox(height: 30,),
-             const Padding(
-               padding:  EdgeInsets.symmetric(horizontal: 15),
+              Padding(
+               padding:  const EdgeInsets.symmetric(horizontal: 15),
                child: TextField(
-                decoration: InputDecoration(
+                onChanged: (String value) {
+                  _email = value;
+                },
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(borderRadius: 
                   BorderRadius.all(Radius.circular(25)),
                   ),
@@ -43,16 +73,19 @@ class _LoginPageState extends State<LoginPage> {
                          ),
              ),
              const SizedBox(height: 30,),
-            const Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 15),
+             Padding(
+              padding:  const EdgeInsets.symmetric(horizontal: 15),
               child:  TextField(
-                decoration: InputDecoration(
+                onChanged: (String value) {
+
+                },
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(borderRadius:
                    BorderRadius.all(Radius.circular(25)),
                    ),
                    labelText: "Password", 
                    labelStyle: TextStyle(fontSize: 19,color: Colors.blueGrey),
-                   hintText: " 12345Zg&"
+                   hintText: " 12345678"
                 ),
               ),
             ),
@@ -75,7 +108,10 @@ class _LoginPageState extends State<LoginPage> {
                 // color: Colors.blueGrey,
                 borderRadius: BorderRadius.circular(30)
               ),
-              child: ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(
+              child: ElevatedButton(onPressed: () {
+                Navigator.push(context,MaterialPageRoute(
+          builder: (context) => const UserPage()));;
+              }, style: ElevatedButton.styleFrom(
                  primary: const Color.fromARGB(255, 115, 162, 185),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(35)
