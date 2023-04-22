@@ -1,5 +1,5 @@
-class UserS {
-  UserS(  { required this.id, 
+class Users {
+  Users(  { required this.id, 
   required this.name, 
   required this.age, 
   required this.phonenumber,
@@ -14,7 +14,7 @@ class UserS {
 }
 
 
-final zharkynai = UserS(
+final zharkynai = Users(
    id: 1,
    name: "Zharkynai",
    age: 20, 
@@ -23,7 +23,7 @@ final zharkynai = UserS(
    password: "1234567z",
    
    );
-final aibek = UserS(
+final aibek = Users(
    id: 2,
    name: "Aibek",
    age: 22, 
@@ -32,7 +32,7 @@ final aibek = UserS(
    password: "1234567a",
    );
    
-final myrzaiym = UserS(
+final myrzaiym = Users(
    id: 3,
    name: "Myrzaiym",
    age: 26, 
@@ -41,7 +41,7 @@ final myrzaiym = UserS(
    password:"1234567m",
    );
    
-final baitur = UserS(
+final baitur = Users(
    id: 4,
    name: "Baitur",
    age: 23, 
@@ -49,7 +49,7 @@ final baitur = UserS(
    email: 'baitur@gmail.com',
    password: "1234567b",
    );
-final  meder = UserS(
+final  meder = Users(
    id: 5,
    name: "Meder",
    age: 28, 

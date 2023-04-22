@@ -4,26 +4,25 @@ import 'package:hw_4_loginpage/home/user_page.dart';
 import 'package:hw_4_loginpage/models/user_model.dart';
 
 
-List users = <UserS> [zharkynai, myrzaiym,aibek, baitur, meder];
+List users = <Users> [zharkynai, aibek,myrzaiym, baitur, meder];
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
-
-  
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String? _email;
-  String? _password;
+  bool? isActive;
+  String? email;
+  String? password;
 
-  void controlLogIn(String email, String password) {
+  void controlLogIn(String? email, String? password) {
     for(final user in users) {
       if(email == user.email && password == user.password) {
         Navigator.push(context,MaterialPageRoute(
-          builder: (context) => const UserPage()));
+          builder: (context) =>  const UserPage()));
           break;
       } 
       else {
@@ -34,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
       }
 
     }
-
   }
   @override
   Widget build(BuildContext context) {
@@ -59,8 +57,11 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                padding:  const EdgeInsets.symmetric(horizontal: 15),
                child: TextField(
-                onChanged: (String value) {
-                  _email = value;
+                onChanged: (String? value) {
+                  email == value;
+                  setState(() {
+                    
+                  });
                 },
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(borderRadius: 
@@ -72,11 +73,16 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                          ),
              ),
+
              const SizedBox(height: 30,),
              Padding(
               padding:  const EdgeInsets.symmetric(horizontal: 15),
               child:  TextField(
-                onChanged: (String value) {
+                onChanged: (String? value) {
+                 password == value;
+                 setState(() {
+                   
+                 });
 
                 },
                 decoration: const InputDecoration(
@@ -89,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+
             const SizedBox(height: 25,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -100,19 +107,21 @@ class _LoginPageState extends State<LoginPage> {
                 Text("Sign In", style: ForgotTextStyle.signInStyle,)
               ],
             ),
+
            const SizedBox(height: 30,),
+
             Container(
               width: 160, 
               height: 60,
               decoration: BoxDecoration(
-                // color: Colors.blueGrey,
                 borderRadius: BorderRadius.circular(30)
               ),
               child: ElevatedButton(onPressed: () {
-                Navigator.push(context,MaterialPageRoute(
-          builder: (context) => const UserPage()));;
-              }, style: ElevatedButton.styleFrom(
-                 primary: const Color.fromARGB(255, 115, 162, 185),
+                    // controlLogIn(email!, password!);
+                    controlLogIn(email, password);
+              },
+              style: ElevatedButton.styleFrom(
+                primary: const Color.fromARGB(255, 115, 162, 185),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(35)
                 )
@@ -120,6 +129,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
                child: const Text("Log In", style: BtnStyle.btnStyle,)),
             )
+
           ],
         ),
       ),
