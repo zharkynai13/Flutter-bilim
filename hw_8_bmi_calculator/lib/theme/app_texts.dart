@@ -6,6 +6,7 @@ class AppTexts{
   static const female = Text("FEMALE");
   static const height = Text("HEIGHT");
   static const weight = Text("WEIGHT");
+  static const cm = Text("cm");
   static const age = Text("AGE");
   static const calculator = Text("CALCULATOR");
   static const finish = Text("Жыйынтык");
