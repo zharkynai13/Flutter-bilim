@@ -14,22 +14,30 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool? isActive;
-  String? email;
-  String? password;
+  String? _email;
+  String? _password;
 
   void controlLogIn(String? email, String? password) {
+    int index = 0;
     for(final user in users) {
+      index++;
       if(email == user.email && password == user.password) {
-        Navigator.push(context,MaterialPageRoute(
-          builder: (context) =>  const UserPage()));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+             builder: (context) =>   UserPage(user: users,))
+             );
           break;
-      } 
-      else {
+      } else if 
+        (index == users.length) {
         ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: 
-        Text("Invailed login or password")
-        ));
+          const SnackBar(
+            content: Text("You data isn't correct!"),
+          ),
+        );
+      }
+      else {
+        continue;
       }
 
     }
@@ -58,10 +66,8 @@ class _LoginPageState extends State<LoginPage> {
                padding:  const EdgeInsets.symmetric(horizontal: 15),
                child: TextField(
                 onChanged: (String? value) {
-                  email == value;
-                  setState(() {
-                    
-                  });
+                  _email == value;
+                  debugPrint("Value works: $value");
                 },
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(borderRadius: 
@@ -79,10 +85,8 @@ class _LoginPageState extends State<LoginPage> {
               padding:  const EdgeInsets.symmetric(horizontal: 15),
               child:  TextField(
                 onChanged: (String? value) {
-                 password == value;
-                 setState(() {
-                   
-                 });
+                 _password == value;
+                 debugPrint("Value works: $value");
 
                 },
                 decoration: const InputDecoration(
@@ -109,26 +113,42 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
            const SizedBox(height: 30,),
-
-            Container(
-              width: 160, 
-              height: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30)
-              ),
-              child: ElevatedButton(onPressed: () {
-                    // controlLogIn(email!, password!);
-                    controlLogIn(email, password);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(255, 115, 162, 185),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(35)
-                )
+           Container(
+            height: 50,
+            width: 250,
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: TextButton(
+              onPressed: () {
+                controlLogIn(_email, _password);
                 
-              ),
-               child: const Text("Log In", style: BtnStyle.btnStyle,)),
-            )
+              },
+              child: const Text("Log In", style: TextStyle(
+                fontSize: 18
+              ),)
+            ),
+           )
+
+            // Container(
+            //   width: 160, 
+            //   height: 60,
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(30)
+            //   ),
+            //   child: ElevatedButton(onPressed: () {
+            //         controlLogIn(_email, _password);
+            //   },
+            //   style: ElevatedButton.styleFrom(
+            //     primary: const Color.fromARGB(255, 115, 162, 185),
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(35)
+            //     )
+                
+            //   ),
+            //    child: const Text("Log In", style: BtnStyle.btnStyle,)),
+            // )
 
           ],
         ),
