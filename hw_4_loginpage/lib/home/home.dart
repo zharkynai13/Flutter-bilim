@@ -4,7 +4,7 @@ import 'package:hw_4_loginpage/home/user_page.dart';
 import 'package:hw_4_loginpage/models/user_model.dart';
 
 
-List users = <Users> [zharkynai, aibek,myrzaiym, baitur, meder];
+final studentter = <Student> [zharkynai, aibek,myrzaiym, baitur, meder];
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,22 +14,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String? _name;
   String? _email;
-  String? _password;
 
-  void controlLogIn(String? email, String? password) {
+  void controlLogIn(String? name, String? email) {
     int index = 0;
-    for(final user in users) {
+    for(final student in studentter) {
       index++;
-      if(email == user.email && password == user.password) {
+      if(name == student.name && email == student.email) {
         Navigator.push(
           context,
           MaterialPageRoute(
-             builder: (context) =>   UserPage(user: users,))
+             builder: (context) =>   UserPage(student: student, user: zharkynai,))
              );
           break;
-      } else if 
-        (index == users.length) {
+      } else {
+        if (index == studentter.length) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text("You data isn't correct!"),
@@ -41,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
       }
 
     }
+   }
   }
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,8 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.person_4,size: 115, color: Color.fromARGB(255, 128, 180, 206),
+            const Icon(Icons.person_4,
+            size: 115, color: Color.fromARGB(255, 128, 180, 206),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -66,16 +68,16 @@ class _LoginPageState extends State<LoginPage> {
                padding:  const EdgeInsets.symmetric(horizontal: 15),
                child: TextField(
                 onChanged: (String? value) {
-                  _email == value;
+                  _name == value;
                   debugPrint("Value works: $value");
                 },
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(borderRadius: 
                   BorderRadius.all(Radius.circular(25)),
                   ),
-                  labelText: "Email",
+                  labelText: "Name",
                   labelStyle: TextStyle(fontSize: 19,color: Colors.blueGrey),
-                  hintText: "user@gmail.com"
+                  hintText: "Zharkynai"
                 ),
                          ),
              ),
@@ -85,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
               padding:  const EdgeInsets.symmetric(horizontal: 15),
               child:  TextField(
                 onChanged: (String? value) {
-                 _password == value;
+                 _email == value;
                  debugPrint("Value works: $value");
 
                 },
@@ -93,9 +95,9 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(borderRadius:
                    BorderRadius.all(Radius.circular(25)),
                    ),
-                   labelText: "Password", 
+                   labelText: "Email", 
                    labelStyle: TextStyle(fontSize: 19,color: Colors.blueGrey),
-                   hintText: " 12345678"
+                   hintText: " zharkynai.zhanybek@gmail.com"
                 ),
               ),
             ),
@@ -122,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             child: TextButton(
               onPressed: () {
-                controlLogIn(_email, _password);
+                controlLogIn(_name, _email);
                 
               },
               child: const Text("Log In", style: TextStyle(
