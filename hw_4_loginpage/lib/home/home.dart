@@ -115,42 +115,42 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
            const SizedBox(height: 30,),
-           Container(
-            height: 50,
-            width: 250,
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: TextButton(
-              onPressed: () {
-                controlLogIn(_name, _email);
+          //  Container(
+          //   height: 50,
+          //   width: 250,
+          //   decoration: BoxDecoration(
+          //     color: Colors.amber,
+          //     borderRadius: BorderRadius.circular(20),
+          //   ),
+          //   child: TextButton(
+          //     onPressed: () {
+          //       controlLogIn(_name, _email);
                 
-              },
-              child: const Text("Log In", style: TextStyle(
-                fontSize: 18
-              ),)
-            ),
-           )
+          //     },
+          //     child: const Text("Log In", style: TextStyle(
+          //       fontSize: 18
+          //     ),)
+          //   ),
+          //  )
 
-            // Container(
-            //   width: 160, 
-            //   height: 60,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(30)
-            //   ),
-            //   child: ElevatedButton(onPressed: () {
-            //         controlLogIn(_email, _password);
-            //   },
-            //   style: ElevatedButton.styleFrom(
-            //     primary: const Color.fromARGB(255, 115, 162, 185),
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(35)
-            //     )
+            Container(
+              width: 160, 
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30)
+              ),
+              child: ElevatedButton(onPressed: () {
+                    controlLogIn(_email, _name);
+              },
+              style: ElevatedButton.styleFrom(
+                primary: const Color.fromARGB(255, 115, 162, 185),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(35)
+                )
                 
-            //   ),
-            //    child: const Text("Log In", style: BtnStyle.btnStyle,)),
-            // )
+              ),
+               child: const Text("Log In", style: BtnStyle.btnStyle,)),
+            )
 
           ],
         ),
