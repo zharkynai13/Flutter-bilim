@@ -1,5 +1,6 @@
 
 import 'package:bmi_calculator_hw8/components/card_widget.dart';
+import 'package:bmi_calculator_hw8/components/raund_btn.dart';
 import 'package:flutter/material.dart';
 
 import '../components/icon_widget.dart';
@@ -11,7 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
+int _height = 120;
+int _weight = 80;
+int _age = 45;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         
                         padding: const EdgeInsets.only(left: 150),
-                        child: const Text("160", style: TextStyle(
+                        child: Text(_height.toString(), style: const TextStyle(
                           fontSize: 56,
                           fontWeight: FontWeight.bold
                         ),),
@@ -63,7 +66,29 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         child: const Text("cm"),
                       )
-                    ],)
+                    ],
+                    ),
+                    Container(
+                      child: SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          trackHeight: 2,
+                          activeTrackColor: Colors.white,
+                          thumbColor: Color(0xffeb1555),
+                          overlayColor: Color(0x15eb1555),
+                          thumbShape: 
+                               const RoundSliderThumbShape(enabledThumbRadius: 15),
+                                overlayShape: const RoundSliderOverlayShape(overlayRadius: 30)
+                        ),
+                        child: Slider(
+                          max: 190,
+                        min: 120, onChanged: (double newValue) {
+                          setState(() {
+                            _height = newValue.toInt().round();
+                          });
+                      
+                        }, value:_height.toDouble(),),
+                      ),
+                    )
                     
                   ],
                 ),
@@ -74,22 +99,90 @@ class _HomePageState extends State<HomePage> {
               CardWidget(
                   color: Color(0xff1d1e33),
                   myChild: Column(
-                  children: [],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(child: const Text("WEIGHT"),
+                    ),
+                    
+                    Container(
+                      child: Text(_weight.toString(),
+                      style: const TextStyle(fontSize: 50,
+                      fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                   
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RauntedBTN(icon: Icons.add,
+                         onpress: (){
+                          // setState(() {
+                          //   _weight++;
+                          // });;
+                         },
+                          color: Color(0xff0A0E21)),
+                          RauntedBTN(icon: Icons.remove_outlined,
+                         onpress: (){
+                          // setState(() {
+                          //   _weight--;
+                          // });
+                         },
+                          color: Color(0xff0A0E21)),
+                      ],
+                    ),
+                    
+                  ],
                 ),
                 ),
               CardWidget(
                   color: Color(0xff1d1e33),
-                  myChild: Column(
-                  children: [],
+                myChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(child:  Text("age".toUpperCase()),
+                    ),
+                    
+                    Container(
+                      child: Text(_age.toString(),
+                      style: const TextStyle(fontSize: 50,
+                      fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                   
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RauntedBTN(icon: Icons.add,
+                         onpress: (){
+                        //  _age++;
+                         },
+                          color: const Color(0xff0A0E21)),
+                          RauntedBTN(icon: Icons.remove_outlined,
+                         onpress: (){ 
+                        // _age--;
+                         },
+                          color: const Color(0xff0A0E21)),
+                      ],
+                    ),
+                    
+                  ],
                 ),
                 ),
             ],),
-          )
+          ),
+          ElevatedButton(onPressed: (){}, child: const Text("Calculate"),
+          style: ElevatedButton.styleFrom(
+            primary: Theme.of(context).accentColor,
+            minimumSize: const Size(double.infinity
+            , 50)
+          ),)
         ],
       )),
     );
   }
 }
+
+
 
 
 
