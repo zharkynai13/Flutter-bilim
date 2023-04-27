@@ -29,9 +29,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Row(
               children: const[
-                CardWidget(),
+                CardWidget(color: Colors.red,),
                 SizedBox(width: 39,),
-                CardWidget(),
+                CardWidget(color: Colors.red,),
           ],
              ),
           ),
@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.only(top: 18, bottom: 18),
             child: Row(
               children: const[
-                CardWidget(),
+                CardWidget(color: Colors.yellow,),
               ],
              ),
           ),
@@ -48,9 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
               child: Row(
               children: const[
-                CardWidget(),
+                CardWidget(color: Colors.green,),
                 SizedBox(width: 39,),
-                CardWidget(),
+                CardWidget(color: Colors.red,),
           ],
              ),
           ),
