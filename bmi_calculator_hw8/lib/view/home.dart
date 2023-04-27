@@ -43,12 +43,17 @@ class _HomePageState extends State<HomePage> {
                 color: Color(0xff1d1e33),
                 myChild: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                
                   children: [
                     Container(
                       child: Text("height".toUpperCase()),
                     ),
-                    Row(children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
                       Container(
+                        
                         padding: const EdgeInsets.only(left: 150),
                         child: const Text("160", style: TextStyle(
                           fontSize: 56,
