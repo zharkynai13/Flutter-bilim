@@ -115,19 +115,21 @@ int _age = 45;
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         RauntedBTN(icon: Icons.add,
-                         onpress: (){
-                          // setState(() {
-                          //   _weight++;
-                          // });;
+                          value: _weight,
+                         add: (m){ 
+                          setState(() {
+                            _weight = m;
+                          });
                          },
-                          color: Color(0xff0A0E21)),
+                          color: Color(0xff0A0E21), remove: (int ) {  },),
                           RauntedBTN(icon: Icons.remove_outlined,
-                         onpress: (){
-                          // setState(() {
-                          //   _weight--;
-                          // });
+                         value: _weight,
+                        remove: (m){ 
+                          setState(() {
+                            _weight = m;
+                          });
                          },
-                          color: Color(0xff0A0E21)),
+                          color: Color(0xff0A0E21), add: (int ) {  },),
                       ],
                     ),
                     
@@ -153,15 +155,23 @@ int _age = 45;
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         RauntedBTN(icon: Icons.add,
-                         onpress: (){
-                        //  _age++;
+                        value: _age,
+                         add: (m){
+                        setState(() {
+                          _age = m;
+                        });
                          },
-                          color: const Color(0xff0A0E21)),
+                          color: const Color(0xff0A0E21), remove: (int ) {  },
+                          ),
                           RauntedBTN(icon: Icons.remove_outlined,
-                         onpress: (){ 
-                        // _age--;
+                          value: _age,
+                         remove: (m){ 
+                          setState(() {
+                            _age = m;
+                          });
                          },
-                          color: const Color(0xff0A0E21)),
+                          color: const Color(0xff0A0E21), add: (int ) {  },
+                          ),
                       ],
                     ),
                     
