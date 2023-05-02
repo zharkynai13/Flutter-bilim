@@ -15,6 +15,34 @@ class _HomePageState extends State<HomePage> {
 int _height = 120;
 int _weight = 80;
 int _age = 45;
+
+  void incrementAge() {
+    setState(() {
+      _age++;
+    });
+  }
+
+  void decrementAge() {
+    setState(() {
+      if (_age > 1) {
+        _age--;
+      }
+    });
+  }
+
+  void incrementWeight() {
+    setState(() {
+      _weight++;
+    });
+  }
+
+  void decrementWeight() {
+    setState(() {
+      if (_weight > 1) {
+        _weight--;
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,32 +138,46 @@ int _age = 45;
                       fontWeight: FontWeight.bold),
                       ),
                     ),
-                   
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RauntedBTN(icon: Icons.add,
-                          value: _weight,
-                         add: (m){ 
-                          setState(() {
-                            _weight = m;
-                          });
-                         },
-                          color: Color(0xff0A0E21), remove: (int ) {  },),
-                          RauntedBTN(icon: Icons.remove_outlined,
-                         value: _weight,
-                        remove: (m){ 
-                          setState(() {
-                            _weight = m;
-                          });
-                         },
-                          color: Color(0xff0A0E21), add: (int ) {  },),
-                      ],
-                    ),
-                    
-                  ],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(width: 20),
+                Container(
+                width: 60,
+                height: 60,
+                child: ElevatedButton(
+                   style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+                    backgroundColor: Color(0xff5C5B5B),
+                  ),
+                  onPressed: () => incrementWeight(),
+                  child: const Icon(Icons.add,),
                 ),
+             ),
+                
+                const SizedBox(width: 20),
+                   Container(
+                width: 60,
+                height: 60,
+                child: ElevatedButton(  
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+                    backgroundColor: Color(0xff5C5B5B),
+                  ),
+                  onPressed: () => decrementWeight(),
+                  child: const Icon(Icons.remove,),
                 ),
+             ),
+ 
+                // ElevatedButton( 
+                //   onPressed: () => decrementWeight(),
+                //   child: const Icon(Icons.remove,size: 45,),
+                // ),
+              ],
+            ),
+          ],
+        ),
+      ),
               CardWidget(
                   color: Color(0xff1d1e33),
                 myChild: Column(
@@ -150,33 +192,73 @@ int _age = 45;
                       fontWeight: FontWeight.bold),
                       ),
                     ),
-                   
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RauntedBTN(icon: Icons.add_outlined,
-                        value: _age,
-                         add: (m){
-                        setState(() {
-                          if(_age>10) {
-                            _age ++;
-                          }
-                        });
-                         },
-                          color: const Color(0xff0A0E21), remove: (int ) {},
-                          ),
 
-                          RauntedBTN(icon: Icons.remove_outlined,
-                          value: _age,
-                         remove: (m){ 
-                          setState(() {
-                            _age = m;
-                          });
-                         },
-                          color: const Color(0xff0A0E21), add: (int) {},
-                          ),
-                      ],
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            const SizedBox(width: 20),
+            Container(
+                width: 60,
+                height: 60,
+                child: ElevatedButton(  
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+                    backgroundColor: Color(0xff5C5B5B)
+                  ),
+                  onPressed: () => incrementAge(),
+                  child: const Icon(Icons.add,),
+                ),
+             ),
+                // ElevatedButton(
+                //   onPressed: () => incrementAge(),
+                //   child: Icon(Icons.add),
+                // ),
+                const SizedBox(width: 20),
+            Container(
+                width: 60,
+                height: 60,
+                child: ElevatedButton(  
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+                    backgroundColor: Color(0xff5C5B5B)
+                  ),
+                  onPressed: () => decrementAge(),
+                  child: const Icon(Icons.remove,),
+                ),
+             ),
+                // ElevatedButton(
+                //   onPressed: () => decrementAge(),
+                //   child: Icon(Icons.remove),
+                // ),
+              ],
+            ),
+
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     RauntedBTN(icon: Icons.add_outlined,
+                    //     value: _age,
+                    //      add: (m){
+                    //     setState(() {
+                    //       if(_age>10) {
+                    //         _age ++;
+                    //       }
+                    //     });
+                    //      },
+                    //       color: const Color(0xff0A0E21), remove: (int ) {},
+                    //       ),
+
+                    //       RauntedBTN(icon: Icons.remove_outlined,
+                    //       value: _age,
+                    //      remove: (m){ 
+                    //       setState(() {
+                    //         _age = m;
+                    //       });
+                    //      },
+                    //       color: const Color(0xff0A0E21), add: (int) {},
+                    //       ),
+                    //   ],
+                    // ),
                     
                   ],
                 ),
