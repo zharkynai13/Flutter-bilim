@@ -154,15 +154,18 @@ int _age = 45;
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        RauntedBTN(icon: Icons.add,
+                        RauntedBTN(icon: Icons.add_outlined,
                         value: _age,
                          add: (m){
                         setState(() {
-                          _age = m;
+                          if(_age>10) {
+                            _age ++;
+                          }
                         });
                          },
-                          color: const Color(0xff0A0E21), remove: (int ) {  },
+                          color: const Color(0xff0A0E21), remove: (int ) {},
                           ),
+
                           RauntedBTN(icon: Icons.remove_outlined,
                           value: _age,
                          remove: (m){ 
@@ -170,7 +173,7 @@ int _age = 45;
                             _age = m;
                           });
                          },
-                          color: const Color(0xff0A0E21), add: (_int) {  },
+                          color: const Color(0xff0A0E21), add: (int) {},
                           ),
                       ],
                     ),
@@ -180,7 +183,7 @@ int _age = 45;
                 ),
             ],),
           ),
-          ElevatedButton(onPressed: (){}, child: const Text("Calculate"),
+          ElevatedButton(onPressed: (){}, child:  Text("Calculate"),
           style: ElevatedButton.styleFrom(
             primary: Theme.of(context).accentColor,
             minimumSize: const Size(double.infinity
