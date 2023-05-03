@@ -1,6 +1,5 @@
 
 import 'package:bmi_calculator_hw8/components/card_widget.dart';
-import 'package:bmi_calculator_hw8/components/raund_btn.dart';
 import 'package:flutter/material.dart';
 
 import '../components/icon_widget.dart';
@@ -138,7 +137,7 @@ int _age = 45;
                       fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(width: 20),
@@ -175,11 +174,12 @@ int _age = 45;
                 // ),
               ],
             ),
+            
           ],
         ),
       ),
               CardWidget(
-                  color: Color(0xff1d1e33),
+                  color: const Color(0xff1d1e33),
                 myChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -203,16 +203,12 @@ int _age = 45;
                 child: ElevatedButton(  
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
-                    backgroundColor: Color(0xff5C5B5B)
+                    backgroundColor: const Color(0xff5C5B5B)
                   ),
                   onPressed: () => incrementAge(),
                   child: const Icon(Icons.add,),
                 ),
              ),
-                // ElevatedButton(
-                //   onPressed: () => incrementAge(),
-                //   child: Icon(Icons.add),
-                // ),
                 const SizedBox(width: 20),
             Container(
                 width: 60,
@@ -232,44 +228,18 @@ int _age = 45;
                 // ),
               ],
             ),
-
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     RauntedBTN(icon: Icons.add_outlined,
-                    //     value: _age,
-                    //      add: (m){
-                    //     setState(() {
-                    //       if(_age>10) {
-                    //         _age ++;
-                    //       }
-                    //     });
-                    //      },
-                    //       color: const Color(0xff0A0E21), remove: (int ) {},
-                    //       ),
-
-                    //       RauntedBTN(icon: Icons.remove_outlined,
-                    //       value: _age,
-                    //      remove: (m){ 
-                    //       setState(() {
-                    //         _age = m;
-                    //       });
-                    //      },
-                    //       color: const Color(0xff0A0E21), add: (int) {},
-                    //       ),
-                    //   ],
-                    // ),
                     
                   ],
                 ),
                 ),
             ],),
           ),
-          ElevatedButton(onPressed: (){}, child:  Text("Calculate"),
+          ElevatedButton(onPressed: (){}, child:  Text("Calculate",style: TextStyle(color: Colors.white),),
           style: ElevatedButton.styleFrom(
-            primary: Theme.of(context).accentColor,
-            minimumSize: const Size(double.infinity
-            , 50)
+            backgroundColor: Colors.pink,
+          minimumSize: const Size(double.infinity
+            , 50),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
           ),)
         ],
       )),
