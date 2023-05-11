@@ -1,8 +1,12 @@
 
+import 'dart:math';
+
+import 'package:bmi_calculator_hw8/components/calcilator.dart';
 import 'package:bmi_calculator_hw8/components/card_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../components/icon_widget.dart';
+ enum GenderSelection { MALE, FEMALE }
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -11,10 +15,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final inActiveColor = Color(0xff1d1e33);
+  final activeColor = Color.fromARGB(1, 40, 42, 73);
+   GenderSelection? selection;
 int _height = 120;
 int _weight = 80;
 int _age = 45;
-
+void results () {
+   final res = _weight / pow(_height/100, 2);
+     if(res < 18.5) {
+       _showAlertDialog(context, "You are Strong");
+      } else if(res >= 18.6 && res <= 25) {
+        _showAlertDialog(context, "You re normal");
+      } else if (res >= 25.1 && res <= 30) {
+        _showAlertDialog(context, "You are fit");
+      } else {
+        _showAlertDialog(context, "YOU ARE SO FIT!!");
+      }
+}
   void incrementAge() {
     setState(() {
       _age++;
@@ -51,20 +69,25 @@ int _age = 45;
       Column(
         children: [
           Expanded(child: Row(
-            children: const [
+            children:  [
                CardWidget(
-                color: Color(0xff1d1e33),
-                myChild: IconWidget(
+                color: selection == GenderSelection.MALE ? activeColor : inActiveColor,
+                myChild: const IconWidget(
                   icon: Icons.male,
-                  label: "MALE",
+                  label: "MALE", 
                 ),
+                onPressed: () {
+                },
               ),
               CardWidget(
-                color:  Color(0xff1d1e33),
-                myChild:IconWidget(
+                color:  selection == GenderSelection.FEMALE ? activeColor : inActiveColor,
+                myChild: const IconWidget(
                   icon: Icons.female,
                   label: "FEMALE",
                 ),
+                onPressed: () {
+ 
+                },
               ),
             ],
           ),),
@@ -222,10 +245,6 @@ int _age = 45;
                   child: const Icon(Icons.remove,),
                 ),
              ),
-                // ElevatedButton(
-                //   onPressed: () => decrementAge(),
-                //   child: Icon(Icons.remove),
-                // ),
               ],
             ),
                     
@@ -234,19 +253,43 @@ int _age = 45;
                 ),
             ],),
           ),
-          ElevatedButton(onPressed: (){}, child:  Text("Calculate",style: TextStyle(color: Colors.white),),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.pink,
-          minimumSize: const Size(double.infinity
-            , 50),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
-          ),)
+          calculated_btn(
+            onPressed: () {
+            results();
+            }
+          )
         ],
       )),
     );
   }
 }
 
+Future<void> _showAlertDialog(BuildContext context, String text) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        titleTextStyle: const TextStyle(color: Colors.blueAccent, fontSize: 24),
+        backgroundColor: Color(0xff0a0321),
+        title: const Text('Cancel Calculate', textAlign: TextAlign.center,),
+        content: Text(text,textAlign: TextAlign.center,
+        style:
+        const TextStyle(
+          fontSize: 22
+        ),),
+        actions: <Widget>[
+          TextButton(
+            child:  Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
 
 
 
