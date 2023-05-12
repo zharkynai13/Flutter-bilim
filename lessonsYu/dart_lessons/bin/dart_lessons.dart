@@ -23,16 +23,34 @@ import 'package:dart_lessons/dart_lessons.dart' as dart_lessons;
 // }
 
 
-void main() {
-  User userOne = User();
-  print(userOne.name);
-  userOne.Login();
-}
-class User {
-  String name = 'Mario';
-  int age = 25;
+// void main() {
+//   User userOne = User();
+//   print(userOne.name);
+//   userOne.Login();
+// }
+// class User {
+//   String name = 'Mario';
+//   int age = 25;
 
-  void Login() {
-    print("object"); 
-  }
-}
+//   void Login() {
+//     print("object"); 
+//   }
+// // }
+// void main() {
+//   User userOne = User("Mario", 30);
+//   print(userOne.username);
+//   userOne.Login();
+// }
+// class User {
+//   String username;
+//   int age;
+
+//   User(String username, int age) {
+//     this.username = username;
+//     this.age = age;
+//   }
+
+//   void Login() {
+//     print("object"); 
+//   }
+// }
