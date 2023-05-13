@@ -3,8 +3,28 @@ import 'package:desktop_app/components/table_widget.dart';
 import 'package:desktop_app/components/text_styles.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
-class SchedulePage extends StatelessWidget {
+// AudioPlayer audioPlayer = AudioPlayer();
+//  bool isLocal = true;
+
+class SchedulePage extends StatefulWidget {
+  @override
+  State<SchedulePage> createState() => _SchedulePageState();
+
+}
+
+class _SchedulePageState extends State<SchedulePage> {
+  //  void initState() {
+  //   super.initState();
+
+  //   // Call the playMusicAtTime function in the initState method
+  //   SchedulerBinding.instance.addPostFrameCallback((_) {
+  //     TimeOfDay scheduledTime = TimeOfDay(hour: 15, minute: 45);
+  //     String audioPath = 'assets/ring/ring.mp3';
+  //     playMusicAtTime(scheduledTime, audioPath);
+  //   });
+  // }
   final List<List<String>> schedule = [
     ['1-сабак', '8:00', '8:45', '8:50'],
     ['2-сабак', '9:00', '9:45', '9:50'],
@@ -13,6 +33,7 @@ class SchedulePage extends StatelessWidget {
     ['5-сабак', '12:00', '12:45', '12:50'],
     ['6-сабак', '12:00', '12:45', '12:50'],
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +97,9 @@ class SchedulePage extends StatelessWidget {
       ),
     );
   }
-
 }
+
+// void playMusicAtTime(TimeOfDay scheduledTime, String audioPath) {
+// }
  
 
