@@ -5,7 +5,7 @@ class AppTexts {
   fontWeight: FontWeight.bold,
   color: Colors.black);
 
-  static const numStyle = TextStyle(fontSize: 150,
+  static const numStyle = TextStyle(fontSize: 130,
   fontWeight: FontWeight.bold,
   color: Colors.white);
 }
