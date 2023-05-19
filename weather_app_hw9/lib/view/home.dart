@@ -54,17 +54,34 @@ class _MyHomePageState extends State<MyHomePage> {
                    Text(
                     "${(weatherSnap!.temp - 273.15).toInt()}",
                     style: AppTexts.numStyle,),
-                   Image.network(ApiConst.getIcon(weatherSnap.icon, 4))
+                    Image.asset("assets/clouds.png", width: 140,),
+                    
+                  //  Image.network(ApiConst.getIcon(weatherSnap.icon, 4))
                  ],
-                           ),
+                    ),
+                     Column(
+                      children: [
+                        
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text("Bishkek", style: AppTexts.cityText,),
+                            Icon(Icons.location_on,size: 40,color: Colors.red,)
+                          ],
+                        ),
+                        const SizedBox(height: 20,),
+                        Text("${weatherSnap.description}",style: AppTexts.descText,)
+                        
+                      ],
+                    )
                         ],),
                       ),
               );
             }else {
-              return Text("data not comming");
+              return const Text("data not comming");
             }
           }else {
-            return Text("belgisiz kata");
+            return const Text("belgisiz kata");
           }
         },
         ),
