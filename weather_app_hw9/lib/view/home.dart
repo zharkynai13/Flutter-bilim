@@ -56,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: AppTexts.numStyle,),
                     Image.asset("assets/clouds.png", width: 140,),
                     
-                  //  Image.network(ApiConst.getIcon(weatherSnap.icon, 4))
                  ],
                     ),
                      Column(
@@ -87,30 +86,5 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
 
    );
-    //     body: Container(
-    //       decoration:const BoxDecoration(
-    //         image: DecorationImage(image: 
-    //         AssetImage("assets/bg-img.jpg"),
-    //         fit: BoxFit.cover)
-    //       ),
-    //       child: Column(children: [
-    //         Row(
-    //           mainAxisAlignment: MainAxisAlignment.spaceAround,
-    //           children: const[
-    //             Icon(Icons.near_me,color: AppColors.iconColor,),
-    //             SizedBox(width: 190,
-    //             height: 40,),
-    //             Icon(Icons.location_city,color: AppColors.iconColor,)
-    //           ],
-    //         ),
-    //          Row(
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //            children: const[
-    //              Text("8",style: AppTexts.numStyle,),
-    //              Image(image: AssetImage("assets/clouds.png"),width: 140,)
-    //            ],
-    //          ),
-    //       ],),
-    //     ),
   }
 }
