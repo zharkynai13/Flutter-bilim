@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_hw8/constants/api_const.dart';
 import 'package:weather_app_hw8/constants/app_color.dart';
 import 'package:weather_app_hw8/constants/app_text.dart';
 import 'package:weather_app_hw8/constants/fetch.dart';
-import 'package:weather_app_hw8/models/model.dart';
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -23,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: FutureBuilder(future: FetchData(),
            builder: (context, snapshot) {
           if(snapshot.connectionState == ConnectionState.none) {
-            return Text("You internet is not working");
+            return const Text("You internet is not working");
           }else if(snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
           }else if(snapshot.connectionState == ConnectionState.done){
@@ -80,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
               return const Text("data not comming");
             }
           }else {
-            return const Text("belgisiz kata");
+            return const Text("null");
           }
         },
         ),
