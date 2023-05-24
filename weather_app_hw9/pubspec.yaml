@@ -18,6 +18,7 @@ dependencies:
   
   cupertino_icons: ^1.0.2
   dio: ^5.1.2
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:
