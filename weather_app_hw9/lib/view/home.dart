@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
     } if(permission == LocationPermission.always && permission == LocationPermission.whileInUse) {
       Position position = await Geolocator.getCurrentPosition();
        Dio dio = Dio();
-       final res = await dio.get(ApiConst.address());
+       final res = await dio.get(ApiConst.address(lat: position.latitude, lon: position.longitude));
        if(res.statusCode == 200) {
         weather = Weather(
        id: res.data["current"]["weather"][0]["id"],
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }else {
          Position position = await Geolocator.getCurrentPosition();
        Dio dio = Dio();
-       final res = await dio.get(ApiConst.address());
+       final res = await dio.get(ApiConst.address(lat: position.latitude, lon: position.longitude));
        if(res.statusCode == 200) {
         weather = Weather(
        id: res.data["current"]["weather"][0]["id"],
