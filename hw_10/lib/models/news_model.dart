@@ -12,6 +12,12 @@ class TopNews {
     required this.article
     }
   );
+  factory TopNews.fromJson(Map<String, dynamic>json) => 
+  TopNews(
+    status: json["status"], 
+    totalResults: json["totalResults"], 
+    article: json["articles"]
+  );
 }
 
 

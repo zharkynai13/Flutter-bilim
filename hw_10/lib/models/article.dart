@@ -20,4 +20,14 @@ class Article {
     this.urlToImage, 
     this.publishedAt, 
     this.content);
+    factory Article.fromJson(Map<String, dynamic>json) => Article(
+    Source.fromJson(json["source"]),
+    json["author"],
+    json["title"],
+    json["description"],
+    json["url"], 
+    json["urlToImage"], 
+    json["publishedAt"], 
+    json["content"]
+     );
 }

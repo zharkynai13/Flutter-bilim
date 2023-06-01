@@ -5,4 +5,6 @@ class Source {
   Source(
     this.id, 
     this.name);
+    factory Source.fromJson(Map<String, dynamic>json) => 
+    Source( json["id"], json['name']);
 }
