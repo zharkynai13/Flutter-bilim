@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                  children:[
                    Text(
-                    "${(weather!.temp- 273.15).toInt()}",
+                    "${(weather!.temp - 273.15).toInt()}",
                     style: AppTexts.numStyle,),
                     Image.asset("assets/clouds.png", width: 140,),
                     
