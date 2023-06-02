@@ -24,10 +24,10 @@ class Article {
     Source.fromJson(json["source"]),
     json["author"],
     json["title"],
-    json["description"],
+    json["description"]?? '', // null алып келе алат 
     json["url"], 
     json["urlToImage"], 
     json["publishedAt"], 
-    json["content"]
+    json["content"] ??'', // null алып келе алат 
      );
 }
