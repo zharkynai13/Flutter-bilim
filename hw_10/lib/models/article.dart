@@ -12,22 +12,24 @@ class Article {
  final String content;
 
   Article(
-    this.source, 
+  { 
+    required this.source, 
     this.author, 
-    this.title, 
-    this.description, 
-    this.url, 
+    required this.title, 
+    required this.description, 
+    required this.url, 
     this.urlToImage, 
-    this.publishedAt, 
-    this.content);
+    required this.publishedAt, 
+    required this.content
+    });
     factory Article.fromJson(Map<String, dynamic>json) => Article(
-    Source.fromJson(json["source"]),
-    json["author"],
-    json["title"],
-    json["description"]?? '', // null алып келе алат 
-    json["url"], 
-    json["urlToImage"], 
-    json["publishedAt"], 
-    json["content"] ??'', // null алып келе алат 
+    source: Source.fromJson(json["source"]),
+    author: json["author"],
+    title: json["title"],
+    description: json["description"]?? '', // null алып келе алат 
+    url: json["url"], 
+    urlToImage: json["urlToImage"], 
+    publishedAt: json["publishedAt"], 
+    content: json["content"] ??'', // null алып келе алат 
      );
 }

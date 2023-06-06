@@ -17,7 +17,9 @@ class TopNewsRepo {
       print(data.runtimeType);
       final topNews = TopNews.fromJson(data);
       print(topNews.runtimeType);
+      return topNews;
     }
+    return null;
 
   }
 }

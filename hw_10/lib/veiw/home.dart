@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hw_10/constants/api_const.dart';
 import 'package:hw_10/models/news_model.dart';
 import 'package:hw_10/services/fetch.dart';
+import '../theme/color_style.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -24,19 +26,40 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('NewsAgregator'),),
-      body: topNews == null ? const Center(child:  CircularProgressIndicator()): 
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [AppColors.appBarGradient, 
+              AppColors.appBarClr]
+            )
+          ),
+        ),
+        title: const Text('BBC News'),
+        actions: const [Icon(Icons.more_vert)],
+        ),
+      body: topNews == null ? const  Center(child: CircularProgressIndicator()): 
       ListView.builder(
         itemCount: topNews!.articles.length,
         itemBuilder: (context, index){
           final news = topNews!.articles[index];
-          return Card(
-            color: Colors.grey[400],
-            child: Row(children: [
-              Image.network(news.urlToImage ?? ApiConst.newsImg),
-              Text(news.title)
-
-            ],),
+          return InkWell(
+            onTap: (){},
+            child: Card(
+              color: AppColors.cardClr,
+              child: Row(
+                children: [
+                Expanded(
+                  flex: 3,
+                  child: 
+                  Image.network(news.urlToImage ?? ApiConst.newsImg)
+                  ),
+                  const SizedBox(width: 20,),
+                Expanded(
+                  flex: 5,
+                  child: Text(news.title, style: const TextStyle(fontSize: 16),))
+              ],),
+            ),
           );
 
       } ),
