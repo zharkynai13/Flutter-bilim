@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hw_10/components/card-widget.dart';
 import 'package:hw_10/constants/api_const.dart';
+import 'package:hw_10/models/article.dart';
 import 'package:hw_10/models/news_model.dart';
 import 'package:hw_10/services/fetch.dart';
+import 'package:hw_10/view/detail_view.dart';
 import '../theme/color_style.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -44,25 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (context, index){
           final news = topNews!.articles[index];
           return InkWell(
-            onTap: (){},
-            child: Card(
-              color: AppColors.cardClr,
-              child: Row(
-                children: [
-                Expanded(
-                  flex: 3,
-                  child: 
-                  Image.network(news.urlToImage ?? ApiConst.newsImg)
-                  ),
-                  const SizedBox(width: 20,),
-                Expanded(
-                  flex: 5,
-                  child: Text(news.title, style: const TextStyle(fontSize: 16),))
-              ],),
-            ),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) =>   DetailView(article: news,),
+                ));
+            },
+            child: mainCard(news: news),
           );
 
       } ),
     );
   }
 }
+
