@@ -7,8 +7,8 @@ import 'package:hw_10/models/news_model.dart';
 
 class TopNewsRepo {
   final http.Client client = http.Client();
-  Future fetchTopNews() async {
-    final Uri uri = Uri.parse(ApiConst.apiNews);
+  Future fetchTopNews(String? domain) async {
+  final Uri uri = (Uri.parse(ApiConst.apiNews(domain)));
     final http.Response response = await get(uri);
     if(response.statusCode == 200 || response.statusCode == 201) {
       print(response.body);
@@ -22,4 +22,6 @@ class TopNewsRepo {
     return null;
 
   }
+  
+
 }

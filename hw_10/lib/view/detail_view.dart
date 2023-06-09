@@ -13,7 +13,7 @@ final Article article;
   @override
   Widget build(BuildContext context) {
     final newsTime = DateFormat('d MMMM y H:m').format(
-      DateTime.parse(article.publishedAt));
+      DateTime.parse(article.publishedAt!));
     return Scaffold(
       appBar: AppBar(
          flexibleSpace: Container(
@@ -28,7 +28,7 @@ final Article article;
         actions: [
           IconButton(
             onPressed: (){
-              Share.share(article.url);
+              Share.share(article.url!);
             }, 
             icon: const Icon(Icons.share)
             )],
@@ -46,7 +46,7 @@ final Article article;
                    const SizedBox(height: 20,),
                 Image.network(article.urlToImage.toString()),
                    const SizedBox(height: 20,),
-                Text(article.content,textAlign: TextAlign.center, 
+                Text(article.content!,textAlign: TextAlign.center, 
                    style: const TextStyle(fontSize: 20),),            
                  DetailButton(article: article,),
                 ],

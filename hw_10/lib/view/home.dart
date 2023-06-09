@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hw_10/components/card-widget.dart';
-import 'package:hw_10/constants/api_const.dart';
-import 'package:hw_10/models/article.dart';
+import 'package:hw_10/models/domain_countries.dart';
 import 'package:hw_10/models/news_model.dart';
 import 'package:hw_10/services/fetch.dart';
 import 'package:hw_10/view/detail_view.dart';
@@ -16,8 +15,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   TopNews? topNews;
-  Future <void> fetchNews() async {
-    topNews = await TopNewsRepo().fetchTopNews();
+  Future <void> fetchNews([String? domain]) async {
+    topNews = null;
+    setState(() {
+      
+    });
+    topNews = await TopNewsRepo().fetchTopNews(domain);
     setState(() {});
   }
   @override
@@ -39,7 +42,18 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         title: const Text('BBC News'),
-        actions: const [Icon(Icons.more_vert)],
+        actions: [
+          PopupMenuButton(
+            onSelected: (Country item) async{
+              await fetchNews(item.domain);
+
+            },
+            itemBuilder: (BuildContext context){
+              return countrySet.map((e) => PopupMenuItem<Country>(
+                value: e,
+                child: Text(e.name),)).toList();
+            }) 
+          ],
         ),
       body: topNews == null ? const  Center(child: CircularProgressIndicator()): 
       ListView.builder(

@@ -32,7 +32,7 @@ class DetailButton extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-     final Uri url = Uri.parse(article.url);
+     final Uri url = Uri.parse(article.url!);
     return MaterialButton(onPressed: (){
       Future<void> _launchUrl() async {
   if (!await launchUrl(url)) {
