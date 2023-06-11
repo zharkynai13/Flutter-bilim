@@ -17,7 +17,7 @@ class UserPage extends StatelessWidget {
         children: [
           Text(user.id.toString()),
           Text(user.email.toString()),
-          Text(user.phonenumber.toString()),
+          Text(user.phoneNumber.toString()),
           Text(user.age.toString()),
           Text(user.name.toString()),
         ],

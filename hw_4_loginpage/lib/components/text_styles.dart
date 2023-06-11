@@ -13,7 +13,7 @@ class BodyTextStyle {
   );
 }
 class ForgotTextStyle {
-  static const forgorTextStyle = TextStyle(
+  static const forgotTextStyle = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w400,
     color: Color.fromARGB(255, 84, 127, 202),

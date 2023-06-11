@@ -43,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
     }
    }
   }
+  
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -106,33 +107,15 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                Text("Forgot password", style: ForgotTextStyle.forgorTextStyle ,),
+                Text("Forgot password", style: ForgotTextStyle.forgotTextStyle ,),
                 SizedBox(width: 5,),
-                Text("/", style: ForgotTextStyle.forgorTextStyle,),
+                Text("/", style: ForgotTextStyle.forgotTextStyle,),
                 SizedBox(width: 5,),
                 Text("Sign In", style: ForgotTextStyle.signInStyle,)
               ],
             ),
 
            const SizedBox(height: 30,),
-          //  Container(
-          //   height: 50,
-          //   width: 250,
-          //   decoration: BoxDecoration(
-          //     color: Colors.amber,
-          //     borderRadius: BorderRadius.circular(20),
-          //   ),
-          //   child: TextButton(
-          //     onPressed: () {
-          //       controlLogIn(_name, _email);
-                
-          //     },
-          //     child: const Text("Log In", style: TextStyle(
-          //       fontSize: 18
-          //     ),)
-          //   ),
-          //  )
-
             Container(
               width: 160, 
               height: 60,
