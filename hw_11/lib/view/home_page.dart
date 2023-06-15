@@ -20,6 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Africa",
     "Australia"
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,8 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           decoration: BoxDecoration(
                               color: Colors.amber,
                               borderRadius: BorderRadius.circular(15)),
-                          child: Text(continents[index],
-                              style: AppTextStyle.cardTitle),
+                          child: Column(
+                            children: [
+                              Text(continents[index],
+                                  style: AppTextStyle.cardTitle),
+                            ],
+                          ),
                         );
                       }),
                 ),

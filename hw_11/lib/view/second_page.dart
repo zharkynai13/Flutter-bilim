@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hw_11/components/app_colors.dart';
-import 'package:hw_11/components/app_text.dart';
+import 'package:hw_11/components/app_text_style.dart';
 
 class SecondPage extends StatefulWidget {
   const SecondPage({super.key});
@@ -17,19 +17,36 @@ class _SecondPageState extends State<SecondPage> {
         actions: [
           Container(
             width: 110,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(50)),
+            decoration: BoxDecoration(boxShadow: const [
+              BoxShadow(color: Colors.grey, blurRadius: 7, offset: Offset(0, 3))
+            ], color: Colors.white, borderRadius: BorderRadius.circular(50)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Text("0"), Text("32"), Text("0")],
+              children: const [
+                Text(
+                  "0",
+                  style: AppTextStyle.numStyle,
+                ),
+                Text(
+                  "32",
+                  style: AppTextStyle.numStyle,
+                ),
+                Text(
+                  "0",
+                  style: AppTextStyle.numStyle,
+                )
+              ],
             ),
           ),
           const SizedBox(
             width: 30,
           ),
           const Padding(
-            padding: EdgeInsets.only(top: 20, right: 30),
-            child: Text("3"),
+            padding: EdgeInsets.only(top: 15, right: 30),
+            child: Text(
+              "3",
+              style: AppTextStyle.numStyle,
+            ),
           ),
           Row(
             children: const [
