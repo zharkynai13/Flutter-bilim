@@ -70,6 +70,17 @@ class _SecondPageState extends State<SecondPage> {
           const Icon(Icons.more_vert)
         ],
       ),
+      body: Column(
+        children: [
+          Expanded(
+              child: Slider(
+            value: 180,
+            onChanged: (v) {},
+            min: 0,
+            max: 200,
+          ))
+        ],
+      ),
     );
   }
 }
