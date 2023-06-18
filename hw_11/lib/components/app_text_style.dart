@@ -11,4 +11,8 @@ class AppTextStyle {
     fontSize: 20,
     fontWeight: FontWeight.w500,
   );
+  static const paris = TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.bold,
+  );
 }

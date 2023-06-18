@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hw_11/components/app_colors.dart';
 import 'package:hw_11/components/app_text.dart';
 import 'package:hw_11/components/app_text_style.dart';
@@ -73,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: [
                               Text(continents[index],
                                   style: AppTextStyle.cardTitle),
+                              // SvgPicture.asset('assets/continents/')
                             ],
                           ),
                         );

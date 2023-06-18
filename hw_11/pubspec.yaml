@@ -34,6 +34,7 @@ flutter:
     - assets/continents/europa.svg
     - assets/continents/north-america.svg
     - assets/continents/south-america.svg
+    - assets/capitals/
   #   - images/a_dot_ham.jpeg
 
  

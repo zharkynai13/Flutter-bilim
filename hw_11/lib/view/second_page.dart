@@ -20,9 +20,9 @@ class _SecondPageState extends State<SecondPage> {
             decoration: BoxDecoration(boxShadow: const [
               BoxShadow(color: Colors.grey, blurRadius: 7, offset: Offset(0, 3))
             ], color: Colors.white, borderRadius: BorderRadius.circular(50)),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
+              children: [
                 Text(
                   "0",
                   style: AppTextStyle.numStyle,
@@ -48,8 +48,8 @@ class _SecondPageState extends State<SecondPage> {
               style: AppTextStyle.numStyle,
             ),
           ),
-          Row(
-            children: const [
+          const Row(
+            children: [
               Icon(
                 Icons.favorite,
                 color: AppColors.red,
@@ -72,13 +72,28 @@ class _SecondPageState extends State<SecondPage> {
       ),
       body: Column(
         children: [
-          Expanded(
-              child: Slider(
-            value: 180,
-            onChanged: (v) {},
-            min: 0,
-            max: 200,
-          ))
+          // Slider(
+          //   activeColor: Colors.black,
+          //   value: 200,
+          //   onChanged: (v) {},
+          //   min: 0,
+          //   max: 200,
+          // ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Center(
+            child: Text(
+              "Paris",
+              style: AppTextStyle.paris,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Image.asset(
+              'assets/capitals/paris.jpeg',
+            ),
+          )
         ],
       ),
     );
