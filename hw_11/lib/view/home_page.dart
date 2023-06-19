@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hw_11/components/app_colors.dart';
 import 'package:hw_11/components/app_text.dart';
 import 'package:hw_11/components/app_text_style.dart';
+import 'package:hw_11/model/continents.dart';
 import 'package:hw_11/view/second_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,14 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> continents = [
-    "Asia",
-    "Europa",
-    "North America",
-    "South America",
-    "Africa",
-    "Australia"
-  ];
+  List<Continents> continents = continentsList;
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +66,13 @@ class _MyHomePageState extends State<MyHomePage> {
                               borderRadius: BorderRadius.circular(15)),
                           child: Column(
                             children: [
-                              Text(continents[index],
+                              Text(continents[index].name,
                                   style: AppTextStyle.cardTitle),
+                              SvgPicture.asset(
+                                "assets/continents/${continents[index].image}.svg",
+                                width: 140,
+                                color: Colors.white,
+                              ),
                               // SvgPicture.asset('assets/continents/')
                             ],
                           ),

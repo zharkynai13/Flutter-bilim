@@ -93,6 +93,24 @@ class _SecondPageState extends State<SecondPage> {
             child: Image.asset(
               'assets/capitals/paris.jpeg',
             ),
+          ),
+          Expanded(
+            child: GridView.builder(
+                padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 1.6),
+                itemCount: 4,
+                itemBuilder: ((context, index) {
+                  return Card(
+                    color: Colors.amber,
+                    child: InkWell(
+                      onTap: () {},
+                      child: const Center(
+                        child: Text("data"),
+                      ),
+                    ),
+                  );
+                })),
           )
         ],
       ),
