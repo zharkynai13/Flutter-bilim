@@ -68,10 +68,15 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: [
                               Text(continents[index].name,
                                   style: AppTextStyle.cardTitle),
+                              const SizedBox(
+                                height: 10,
+                              ),
                               SvgPicture.asset(
                                 "assets/continents/${continents[index].image}.svg",
-                                width: 140,
-                                color: Colors.white,
+                                width: 130,
+                                color: continents[index].colors,
+                                fit: BoxFit.contain,
+                                alignment: Alignment.center,
                               ),
                               // SvgPicture.asset('assets/continents/')
                             ],
