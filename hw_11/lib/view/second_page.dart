@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hw_11/components/app_colors.dart';
 import 'package:hw_11/components/app_text_style.dart';
+import 'package:hw_11/model/suuro_joop.dart';
 
 class SecondPage extends StatefulWidget {
-  const SecondPage({super.key});
+  const SecondPage({super.key, required this.suroo});
+  final List<Suroo> suroo;
 
   @override
   State<SecondPage> createState() => _SecondPageState();
 }
 
 class _SecondPageState extends State<SecondPage> {
+  var indexText = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,10 +86,7 @@ class _SecondPageState extends State<SecondPage> {
             height: 20,
           ),
           const Center(
-            child: Text(
-              "Paris",
-              style: AppTextStyle.paris,
-            ),
+            child: Text("Paris"),
           ),
           Padding(
             padding: const EdgeInsets.all(20),
@@ -105,8 +105,9 @@ class _SecondPageState extends State<SecondPage> {
                     color: Colors.amber,
                     child: InkWell(
                       onTap: () {},
-                      child: const Center(
-                        child: Text("data"),
+                      child: Center(
+                        child:
+                            Text(widget.suroo[indexText].jooptor[index].text),
                       ),
                     ),
                   );

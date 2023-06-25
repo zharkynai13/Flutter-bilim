@@ -43,8 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
         child: InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const SecondPage()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => SecondPage(
+                          suroo: [],
+                        )));
           },
           child: Container(
             child: Column(
