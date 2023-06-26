@@ -4,15 +4,17 @@ import 'package:hw_11/components/app_text_style.dart';
 import 'package:hw_11/model/suuro_joop.dart';
 
 class SecondPage extends StatefulWidget {
-  const SecondPage({super.key, required this.suroo});
-  final List<Suroo> suroo;
+  const SecondPage({super.key, required this.surooJoopList});
+  final List<Suroo> surooJoopList;
 
   @override
   State<SecondPage> createState() => _SecondPageState();
 }
 
 class _SecondPageState extends State<SecondPage> {
-  var indexText = 0;
+  int indexText = 0;
+  int tuuraJop = 0;
+  int kataJoop = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,11 +106,43 @@ class _SecondPageState extends State<SecondPage> {
                   return Card(
                     color: Colors.amber,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        if (indexText + 1 == widget.surooJoopList.length) {
+                          showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                    title:
+                                        const Text("Your text are so simple"),
+                                    content:
+                                        Text("tuura:$tuuraJop\nKata:$kataJoop"),
+                                    actions: <Widget>[
+                                      TextButton(
+                                          onPressed: () {
+                                            indexText = 0;
+                                            kataJoop = 0;
+                                            tuuraJop = 0;
+                                            setState(() {});
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text("Cancel"))
+                                    ],
+                                  ));
+                        } else {
+                          if (surooJoopList[indexText]
+                                  .jooptor[index]
+                                  .tuuraJoop ==
+                              true) {
+                            tuuraJop++;
+                          }
+                          kataJoop++;
+                        }
+                        setState(() {
+                          indexText++;
+                        });
+                      },
                       child: Center(
-                        child:
-                            Text(widget.suroo[indexText].jooptor[index].text),
-                      ),
+                          child: Text(
+                              surooJoopList[indexText].jooptor[index].text)),
                     ),
                   );
                 })),

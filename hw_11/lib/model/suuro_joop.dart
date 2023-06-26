@@ -42,9 +42,15 @@ Suroo s3 = Suroo(
     joop(text: "Rim", tuuraJoop: true)
   ],
 );
+Suroo s4 = Suroo(
+  text: "Russua",
+  image: "rim",
+  jooptor: [
+    joop(text: "Moskow", tuuraJoop: false),
+    joop(text: "Paris", tuuraJoop: false),
+    joop(text: "Prague", tuuraJoop: false),
+    joop(text: "Rim", tuuraJoop: true)
+  ],
+);
 
-List<Suroo> surooJoopList = [
-  s1,
-  s2,
-  s3,
-];
+List<Suroo> surooJoopList = [s1, s2, s3, s4];
