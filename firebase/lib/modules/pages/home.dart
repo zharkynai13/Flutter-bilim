@@ -24,7 +24,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => ToDoView()));
                 },
-                child: const Icon(Icons.arrow_right))
+                child: const Icon(Icons.arrow_right)),
+            Container(
+              child: const Text("Firebase FlutterFlow"),
+            )
           ],
         ),
       ),
